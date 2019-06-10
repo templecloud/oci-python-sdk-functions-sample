@@ -1,4 +1,4 @@
-# Invoke Oracle Functions using the OCI Java SDK
+# Invoke Oracle Functions using the OCI Python SDK
 
 This example demonstrates how to invoke an Oracle function on Oracle Cloud Infrastructur using the OCI Python SDK. The examples are implemented using `static functions` for easy re-use in starter projects.
 
