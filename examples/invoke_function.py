@@ -757,9 +757,9 @@ if __name__ == "__main__":
     # e.g. phx.ocir.io/tenancy-name/registry/imagename:version
     image = os.environ.get('OCIR_FN_IMAGE')
 
-    # If the target image require input, it can be defined with CONTENT 
+    # If the target image require input, it can be defined with FN_PAYLOAD 
     # environment variable.
-    content = os.environ.get('CONTENT')
+    content = os.environ.get('FN_PAYLOAD')
     if content is None:
         content = ""
 
@@ -775,7 +775,7 @@ if __name__ == "__main__":
     # Attempt to setup the minimal OCI resources for a Function.
     if SETUP in sys.argv:
         if image is None:
-            print("The IMAGE environment variable must be set.")
+            print("The OCIR_FN_IMAGE environment variable must be set.")
             sys.exit(1)
         setup_resources(cfg, compartment_id, name, image)
 
