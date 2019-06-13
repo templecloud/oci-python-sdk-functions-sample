@@ -730,6 +730,45 @@ def function_name(name: str) -> str:
 #  === Main ===
 
 if __name__ == "__main__":
+    """
+    This is a basic example of how to register and invoke a serverless Function
+    on OCI using the Python SDK.
+    
+    The example has some pre-requisites. In particular you will need to create a
+    Function and publish it to OCIR. The best way to do this is with the 'Fn
+    CLI':
+    
+    1. Install Fn CLI : https://github.com/fnproject/cli
+    
+    2. Create Function - Quick Guide :
+       https://github.com/fnproject/fn/blob/master/README.md
+    
+
+    This sample will do following things:
+    
+    1. Create VCN and subnets - Provide an endpoint on which your function can be
+       invoked.
+    
+    2. Create Application and Function - Register and configure your function.
+    
+    3. Invoke Function - How your function can be invoked.
+    
+    4. Clean-up - Tidy up the resources created above.
+    
+       NB: To simplify things, this example is hardcoded to the 'us-phoenix-1' OCI
+       region.
+     
+    It is also necessary to create two environment variables to configure the sample.
+    
+    1) COMPARTMENT_NAME : Must be a valid OCI Compartment name.
+    2) OCIR_FN_IMAGE    : Must be a valid OCIR function image.
+    
+       NB: Currently, after invoking a function we must wait upto 30 minutes before
+       clearing down any supporting Subnets and VCN.
+    
+    :param args: The commandline args: setup, invoke, teardown
+    :type argv: [str]
+    """
 
     # All resources will be prefixed with this name.
     name = NAME_PREFIX
